@@ -1,49 +1,60 @@
 {
-  "name": "refine-nextjs-zenstack",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 refine dev",
-    "build": "refine build",
-    "start": "refine start",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-    "refine": "refine"
-  },
-  "dependencies": {
-    "@refinedev/cli": "^2.16.21",
-    "@refinedev/core": "^4.47.1",
-    "@refinedev/devtools": "^1.1.32",
-    "@refinedev/nextjs-router": "^6.0.0",
-    "@refinedev/kbar": "^1.3.6",
-    "next": "14.1.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "@refinedev/simple-rest": "^5.0.1",
-    "@refinedev/mui": "^5.14.4",
-    "@refinedev/react-hook-form": "^4.8.14",
-    "@mui/icons-material": "^5.8.3",
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@mui/lab": "^5.0.0-alpha.85",
-    "@mui/material": "^5.8.6",
-    "@mui/x-data-grid": "^6.6.0",
-    "js-cookie": "^3.0.5"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@types/node": "^18.0.0",
-    "@typescript-eslint/parser": "5.48.0",
-    "typescript": "^4.7.4",
-    "cross-env": "^7.0.3",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "@types/js-cookie": "^3.0.6"
-  },
-  "refine": {
-    "projectId": "fEqQye-WWlKq9-8mmbEQ"
-  }
+    "name": "refine-nextjs-zenstack",
+    "version": "0.1.0",
+    "private": true,
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "scripts": {
+        "dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 refine dev",
+        "generate": "zenstack generate && prisma db push",
+        "build": "npm run generate && refine build",
+        "start": "refine start",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "refine": "refine"
+    },
+    "dependencies": {
+        "@auth/prisma-adapter": "^2.1.0",
+        "@emotion/react": "^11.8.2",
+        "@emotion/styled": "^11.8.1",
+        "@mui/icons-material": "^5.8.3",
+        "@mui/lab": "^5.0.0-alpha.85",
+        "@mui/material": "^5.8.6",
+        "@mui/x-data-grid": "^6.6.0",
+        "@prisma/client": "^5.14.0",
+        "@refinedev/cli": "^2.16.21",
+        "@refinedev/core": "^4.47.1",
+        "@refinedev/devtools": "^1.1.32",
+        "@refinedev/kbar": "^1.3.6",
+        "@refinedev/mui": "^5.14.4",
+        "@refinedev/nextjs-router": "^6.0.0",
+        "@refinedev/react-hook-form": "^4.8.14",
+        "@refinedev/simple-rest": "^5.0.1",
+        "@zenstackhq/runtime": "^2.1.2",
+        "@zenstackhq/server": "^2.1.2",
+        "bcryptjs": "^2.4.3",
+        "js-cookie": "^3.0.5",
+        "next": "14.1.0",
+        "next-auth": "^5.0.0-beta.18",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "ts-pattern": "^5.1.2"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.6",
+        "@types/js-cookie": "^3.0.6",
+        "@types/node": "^18.0.0",
+        "@types/react": "^18.0.0",
+        "@types/react-dom": "^18.0.0",
+        "@typescript-eslint/parser": "5.48.0",
+        "cross-env": "^7.0.3",
+        "eslint": "^8",
+        "eslint-config-next": "14.1.0",
+        "prisma": "^5.14.0",
+        "typescript": "^5.4.5",
+        "zenstack": "^2.1.2"
+    },
+    "refine": {
+        "projectId": "fEqQye-WWlKq9-8mmbEQ"
+    }
 }

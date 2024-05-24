@@ -1,21 +1,19 @@
-import { AuthBindings } from "@refinedev/core";
-import { cookies } from "next/headers";
+import { auth } from '@/auth';
+import { AuthProvider } from '@refinedev/core';
 
-export const authProviderServer: Pick<AuthBindings, "check"> = {
-  check: async () => {
-    const cookieStore = cookies();
-    const auth = cookieStore.get("auth");
-
-    if (auth) {
-      return {
-        authenticated: true,
-      };
-    }
-
-    return {
-      authenticated: false,
-      logout: true,
-      redirectTo: "/login",
-    };
-  },
+export const authProviderServer: Pick<AuthProvider, 'check'> = {
+    check: async () => {
+        const session = await auth();
+        if (session) {
+            return {
+                authenticated: true,
+            };
+        } else {
+            return {
+                authenticated: false,
+                logout: true,
+                redirectTo: '/login',
+            };
+        }
+    },
 };
